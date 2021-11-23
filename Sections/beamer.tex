@@ -1,105 +1,100 @@
-%*----------- SLIDE -------------------------------------------------------------
-\begin{frame}[t]{Introdução} 
-    \framesubtitle{Planejador global}
-    O planejador de trajetória global tem como objetivo \emph{encontrar um caminho} entre duas localizações em um \emph{mapa global}.
+%*----------- SLIDE (IMAGEM DO PROJETO) -------------------------------------------------------------
+ \begin{frame}[c]{APEREA}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{1-aperea.png}
+        %\caption{.}
+    \end{figure}
+\end{frame}
 
-    Planejadores globais aderentes ao nav core::BaseGlobalPlanner:
-    %\newline
+%*----------- SLIDE -------------------------------------------------------------
+\begin{frame}[t]{Conceitual}
+    \framesubtitle{Objetivo}
+    
+    O Aperea é capaz de \emph{buscar} e \emph{reconhecer} uma \emph{tag} no ambiente. A tag indica a localização de uma bola na cor laranja. A partir desta informação, o robô deve \emph{encontrar} a \emph{bola}.
+
+    \vspace*{0.8cm}
+    \begin{figure}
+        \includegraphics[trim = 0 20 0 50, clip, width=0.8\textwidth]{jetbot_mission.png}
+        %\caption{.}
+    \end{figure}
+%*----------- notes
+    \note[item]{Notes can help you to remember important information. Turn on the notes option.}
+\end{frame}
+%-
+
+%*----------- SLIDE -------------------------------------------------------------
+\begin{frame}[t]{Conceitual} 
+    \framesubtitle{Requisitos do projeto}
         \begin{columns}[t]
             \column{.05\linewidth}
             \column{.4\linewidth}
                 \begin{enumerate}
-                    \item Global planner
-                    \item Navfn
-                    \item Carrot planner
+                    \item O robô deve ser autônomo
+                    \item O robô deve mapear e reconhecer o ambiente
+                    \item O robô deve ser capaz de evitar obstáculos
+                    \item O robô deve reconhecer uma esfera colorida
                 \end{enumerate}
             \column{.6\linewidth}
             \begin{center}
             %\centerline{
                 \begin{figure}
-                    %\includegraphics[width=1\textwidth]{pista}
-                    % \caption{Pista de corrida \cite{agostini2007}}
-                    \roundpic[xshift=-0.7cm,yshift=0.5cm]{2.5cm}{6cm}{trajetoria}
-                    %\caption{Pista de corrida \cite{agostini2007}}
+                    \roundpic[xshift=-0.7cm,yshift=0.5cm]{6cm}{6cm}{aperea_assembly2}
                 \end{figure}
             %}
             \end{center}
         \end{columns}
-        \vspace*{0.6cm}
-        Há a possibilidade de inserir plugins com outros métodos de planejamento global.
 %*----------- notes
     \note[item]{Notes can help you to remember important information. Turn on the notes option.}
 \end{frame}
 %-
-%*----------- SLIDE -------------------------------------------------------------
-\begin{frame}[t]{D*}
-    \framesubtitle{Classificações}
-    % \begin{columns}
-    %     \column{.1\textwidth}
-    %     \column{.4\textwidth}
-    %     \column{.4\textwidth}
-    % \end{columns}
-
-    \begin{block}{D* original}
-        -Nome baseado no termo \emph{"Dinâmico A*"}\\
-        -Desenvolvido por \emph{Anthony Stentz}
-    \end{block}
-
-    \begin{alertblock}{D* focalizado}
-        -Combina ideias do \emph{A*} e do \emph{D* original}\\
-        -Desenvolvido por \emph{Anthony Stentz}
-    \end{alertblock}
-
-    \begin{exampleblock}{D* lite}
-        -Baseado no \emph{Lifelong Planning A*}\\
-        -Desenvolvido por \emph{Sven Koenig} e \emph{Maxim Likhachev} 
-    \end{exampleblock}
- %*----------- notes
-    \note[item]{Notes can help you to remember important information. Turn on the notes option.}
-\end{frame}
-%-
-%*----------- SLIDE -------------------------------------------------------------
-\begin{frame}[t]{D*}
-    \framesubtitle{Funcionamento}
-    \begin{enumerate}
-        \item Os algoritmos de busca D* resolvem os problemas de planejamento baseados em suposições
-        \item Novas informações são adicionadas ao mapa e se necessário uma nova trajetória é planejada
-        \item Os sistemas atuais são normalmente baseados no D* lite
-    \end{enumerate}
-
+%*----------- SLIDE (IMAGEM DO PROJETO) -------------------------------------------------------------
+\begin{frame}[t]{Conceitual}
+    \framesubtitle{Metodologia}
     \begin{figure}
-        \includegraphics[trim = 0 20 0 50, clip, width=0.8\textwidth]{funcionamento.png}
+        \includegraphics[width=0.8\textwidth]{eap.png}
         %\caption{.}
     \end{figure}
-%*----------- notes
-    \note[item]{Notes can help you to remember important information. Turn on the notes option.}
 \end{frame}
-%-
-%*----------- SLIDE -------------------------------------------------------------
-\begin{frame}[c]{Metodologia}
+%*----------- SLIDE (IMAGEM DO PROJETO) -------------------------------------------------------------
+\begin{frame}[t]{Design}
+    \framesubtitle{Linha do tempo do design}
     \begin{figure}
-        \includegraphics[width=0.8\textwidth]{metodologia.png}
+        % \includegraphics[width=\textwidth]{eap.png}
         %\caption{.}
     \end{figure}
-%*----------- notes
-    \note[item]{Notes can help you to remember important information. Turn on the notes option.}
 \end{frame}
-%-
-%*----------- SLIDE -------------------------------------------------------------
-\begin{frame}[c]{Considerações Finais}
-    \begin{columns}
-        \column{.00\textwidth}
-        \column{.5\textwidth}
-            \begin{itemize}
-                \item Gera uma trajetória global
-                \item Dificuldade para \emph{gerar} a trajetória
-                \item Dificuldade para \emph{atualizar} a trajetória
-                \item \emph{Bons resultados} em curtas distâncias
-            \end{itemize}
-        \column{.5\textwidth}
-             \includegraphics[width=\textwidth]{result.png}
-    \end{columns}
- %*----------- notes
-    \note[item]{Notes can help you to remember important information. Turn on the notes option.}
+
+%*----------- SLIDE (IMAGEM DO PROJETO) -------------------------------------------------------------
+\begin{frame}[t]{Design}
+    \framesubtitle{Arquitetura Geral}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{AG.png}
+        %\caption{.}
+    \end{figure}
 \end{frame}
-%-
+
+%*----------- SLIDE (IMAGEM DO PROJETO) -------------------------------------------------------------
+\begin{frame}[t]{Design}
+    \framesubtitle{Funcionalidades}
+    \begin{figure}
+        \includegraphics[width=0.75\textwidth]{diagrama_funcionalidades1.png}
+        %\caption{.}
+    \end{figure}
+\end{frame}
+%*----------- SLIDE (IMAGEM DO PROJETO) -------------------------------------------------------------
+\begin{frame}[t]{Design}
+    \framesubtitle{Funcionalidades}
+    \begin{figure}
+        \includegraphics[width=0.8\textwidth]{diagrama_funcionalidades2.png}
+        %\caption{.}
+    \end{figure}
+\end{frame}
+
+%*----------- SLIDE (IMAGEM DO PROJETO) -------------------------------------------------------------
+\begin{frame}[t]{Design}
+    \framesubtitle{Estrutura analítica do projeto}
+    \begin{figure}
+        \includegraphics[width=0.75\textwidth]{PBS.png}
+        %\caption{.}
+    \end{figure}
+\end{frame}
